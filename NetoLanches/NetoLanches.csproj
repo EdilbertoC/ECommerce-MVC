@@ -1,9 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Home\Demo.cshtml~RF5617c89.TMP" />
+    <None Remove="Views\Home\Demo.cshtml~RF563deb4.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\carousel11.jpg" />
+    <None Include="wwwroot\images\carousel12.jpg" />
+    <None Include="wwwroot\images\carousel13.jpg" />
+  </ItemGroup>
 
 </Project>
