@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="appsettings.json~RFb3f721f.TMP" />
+    <None Remove="Repositories\Interfaces\ICategoriaRepository.cs~RFbc0b3d8.TMP" />
   </ItemGroup>
 
   <ItemGroup>
