@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="appsettings.json~RFb3f721f.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\images\carousel11.jpg" />
     <None Include="wwwroot\images\carousel12.jpg" />
     <None Include="wwwroot\images\carousel13.jpg" />
