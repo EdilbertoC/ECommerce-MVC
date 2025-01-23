@@ -1,7 +1,8 @@
 ﻿using NetoLanches.Context;
 using NetoLanches.Models;
+using NetoLanches.Repositories.Interfaces;
 
-namespace NetoLanches.Repositories.Interfaces
+namespace NetoLanches.Repositories
 {
     public class CategoriaRepository : ICategoriaRepository
     {
