@@ -1,4 +1,5 @@
 ﻿using ECommerce.Repositories.Interfaces;
+using ECommerce.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Controllers
@@ -13,16 +14,22 @@ namespace ECommerce.Controllers
 
         public IActionResult List()
         {
-            ViewData["Titulo"] = "Todos os Lanches";
-            ViewData["Data"] = DateTime.Now;
+            //ViewData["Titulo"] = "Todos os Lanches";
+            //ViewData["Data"] = DateTime.Now;
 
-            var lanches = _lancheRepository.Lanches;
-            var totalLanches = lanches.Count();
+            //var lanches = _lancheRepository.Lanches;
+            //var totalLanches = lanches.Count();
 
-            ViewBag.Total = "Total de lanches: ";
-            ViewBag.TotalLanches = totalLanches;
+            //ViewBag.Total = "Total de lanches: ";
+            //ViewBag.TotalLanches = totalLanches;
 
-            return View(lanches);
+            //return View(lanches);
+
+            var lancheListViewModel = new LancheListViewModel();
+            lancheListViewModel.Lanches = _lancheRepository.Lanches;
+            lancheListViewModel.CategoriaAtual = "Categoria Atual";
+
+            return View(lancheListViewModel);
         }
     }
 }
