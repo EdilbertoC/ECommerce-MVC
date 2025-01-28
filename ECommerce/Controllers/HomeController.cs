@@ -15,6 +15,7 @@ namespace ECommerce.Controllers
 
         public IActionResult Index()
         {
+            TempData["Nome"] = "Edilberto";
             return View();
         }
 
