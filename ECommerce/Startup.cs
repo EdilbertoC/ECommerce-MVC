@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ECommerce.Context;
 using ECommerce.Repositories;
 using ECommerce.Repositories.Interfaces;
+using ECommerce.Models;
 
 namespace ECommerce;
 public class Startup
@@ -24,6 +25,7 @@ public class Startup
         services.AddTransient<ILancheRepository, LancheRepository>();
         services.AddTransient<ICategoriaRepository, CategoriaRepository>();
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
 
         services.AddControllersWithViews();
 
