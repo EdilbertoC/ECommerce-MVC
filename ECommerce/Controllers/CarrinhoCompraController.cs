@@ -1,5 +1,6 @@
 ﻿using ECommerce.Models;
 using ECommerce.Repositories.Interfaces;
+using ECommerce.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Controllers
@@ -17,7 +18,16 @@ namespace ECommerce.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var itens = _carrinhoCompra.GetCarrinhoCompraItens();
+            _carrinhoCompra.CarrinhoCompraItens = itens;
+
+            var carrinhoCompraVM = new CarrinhoCompraViewModel
+            {
+                CarrinhoCompra = _carrinhoCompra,
+                CarrinhoCompraTotal = _carrinhoCompra.GetCarrinhoCompraTotal(),
+            };
+
+            return View(carrinhoCompraVM);
         }
     }
 }
