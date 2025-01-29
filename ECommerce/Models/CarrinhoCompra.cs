@@ -1,4 +1,6 @@
 ﻿using ECommerce.Context;
+using ECommerce.Migrations;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Models
 {
@@ -77,6 +79,33 @@ namespace ECommerce.Models
             }
             _context.SaveChanges();
             return quantidadeLocal;
+        }
+
+        public List<CarrinhoCompraItem> GetCarrinhoCompraItens()
+        {
+            return CarrinhoCompraItens ??
+                   (CarrinhoCompraItens =
+                       _context.CarrinhoCompraItens.Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
+                           .Include(s => s.Lanche)
+                           .ToList());
+        }
+
+        public void LimparCarrinho()
+        {
+            var carrinhoItens = _context.CarrinhoCompraItens
+                                    .Where(c => c.CarrinhoCompraId == CarrinhoCompraId);
+
+            _context.CarrinhoCompraItens.RemoveRange(carrinhoItens);
+            _context.SaveChanges();
+        }
+
+        public decimal GetCarrinhoCompraTotal()
+        {
+            var total = _context.CarrinhoCompraItens
+                                .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
+                                .Select(c => c.Lanche.Preco * c.Quantidade)
+                                .Sum();
+            return total;
         }
     }
 }
