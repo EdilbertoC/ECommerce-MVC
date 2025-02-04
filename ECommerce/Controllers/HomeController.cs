@@ -1,27 +1,21 @@
 using System.Diagnostics;
 using ECommerce.Models;
+using ECommerce.Repositories.Interfaces;
+using ECommerce.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
+        private readonly ILancheRepository _lancheRepository;
         public IActionResult Index()
         {
-            TempData["Nome"] = "Edilberto";
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            var homeViewModel = new HomeViewModel
+            {
+                LanchesPreferidos = _lancheRepository.LanchesPreferidos
+            };
+            return View(homeViewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
