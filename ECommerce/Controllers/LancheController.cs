@@ -1,4 +1,5 @@
-﻿using ECommerce.Repositories.Interfaces;
+﻿using ECommerce.Models;
+using ECommerce.Repositories.Interfaces;
 using ECommerce.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,22 +13,38 @@ namespace ECommerce.Controllers
             _lancheRepository = lancheRepository;
         }
 
-        public IActionResult List()
+        public IActionResult List(string categoria)
         {
-            //ViewData["Titulo"] = "Todos os Lanches";
-            //ViewData["Data"] = DateTime.Now;
+            IEnumerable<Lanche> lanches;
+            string categoriaAtual = string.Empty;
 
-            //var lanches = _lancheRepository.Lanches;
-            //var totalLanches = lanches.Count();
+            if (string.IsNullOrEmpty(categoria))
+            {
+                lanches = _lancheRepository.Lanches.OrderBy(l => l.LancheId);
+                categoriaAtual = "Todos os lanches";
+            }
+            else
+            {
+                if (string.Equals("Normal", categoria, StringComparison.OrdinalIgnoreCase))
+                {
+                    lanches = _lancheRepository.Lanches
+                        .Where(l => l.Categoria.CategoriaNome.Equals("Normal"))
+                        .OrderBy(l => l.Nome);
+                }
+                else
+                {
+                    lanches = _lancheRepository.Lanches
+                        .Where(l => l.Categoria.CategoriaNome.Equals("Natural"))
+                        .OrderBy(l => l.Nome);
+                }
+                categoriaAtual = categoria;
+            }
 
-            //ViewBag.Total = "Total de lanches: ";
-            //ViewBag.TotalLanches = totalLanches;
-
-            //return View(lanches);
-
-            var lancheListViewModel = new LancheListViewModel();
-            lancheListViewModel.Lanches = _lancheRepository.Lanches;
-            lancheListViewModel.CategoriaAtual = "Categoria Atual";
+            var lancheListViewModel = new LancheListViewModel
+            {
+                Lanches = lanches,
+                CategoriaAtual = categoriaAtual,
+            };
 
             return View(lancheListViewModel);
         }
