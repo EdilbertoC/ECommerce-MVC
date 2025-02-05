@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ECommerce.Models;
+using LanchesMac.Models;
 
 namespace ECommerce.Context
 {
@@ -12,5 +13,7 @@ namespace ECommerce.Context
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Lanche> Lanches { get; set; }
         public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
     }
 }
