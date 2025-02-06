@@ -1,4 +1,4 @@
-﻿using LanchesMac.Models;
+﻿using ECommerce.Models;
 
 namespace ECommerce.Repositories.Interfaces
 {

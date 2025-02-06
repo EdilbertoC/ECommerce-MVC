@@ -1,6 +1,5 @@
 ﻿using ECommerce.Models;
 using ECommerce.Repositories.Interfaces;
-using LanchesMac.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Controllers

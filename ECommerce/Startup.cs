@@ -1,7 +1,6 @@
 ﻿using ECommerce.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ECommerce.Context;
 using ECommerce.Repositories;
 using ECommerce.Repositories.Interfaces;
 using ECommerce.Models;

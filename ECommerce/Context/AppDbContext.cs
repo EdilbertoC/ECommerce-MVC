@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ECommerce.Models;
-using LanchesMac.Models;
 
 namespace ECommerce.Context
 {

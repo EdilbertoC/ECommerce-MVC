@@ -1,7 +1,6 @@
 ﻿using ECommerce.Context;
 using ECommerce.Models;
 using ECommerce.Repositories.Interfaces;
-using LanchesMac.Models;
 
 namespace ECommerce.Repositories
 {
