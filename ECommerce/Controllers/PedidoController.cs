@@ -52,7 +52,7 @@ namespace ECommerce.Controllers
 
                 _carrinhoCompra.LimparCarrinho();
 
-                return View("~/View/Pedido/Checkout/CheckoutCompleto.cshtml", pedido);
+                return View("~/Views/Pedido/CheckoutCompleto.cshtml", pedido);
             }
             return View(pedido);
         }
