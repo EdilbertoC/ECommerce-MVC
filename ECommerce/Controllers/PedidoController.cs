@@ -23,7 +23,38 @@ namespace ECommerce.Controllers
         [HttpPost]
         public IActionResult Checkout(Pedido pedido)
         {
-            return View();
+            int totalItensPedido = 0;
+            decimal precoTotal = 0;
+
+            List<CarrinhoCompraItem> itens = _carrinhoCompra.GetCarrinhoCompraItens();
+            _carrinhoCompra.CarrinhoCompraItens = itens;
+
+            if(_carrinhoCompra.CarrinhoCompraItens.Count == 0)
+            {
+                ModelState.AddModelError("", "Seu carrinho está vazio");
+            }
+
+            foreach(var item in itens)
+            {
+                totalItensPedido += item.Quantidade;
+                precoTotal += (item.Lanche.Preco * item.Quantidade);
+            }
+
+            pedido.TotalItensPedido = totalItensPedido;
+            pedido.PedidoTotal = precoTotal;
+
+            if(ModelState.IsValid)
+            {
+                _pedidoRepository.CriarPedido(pedido);
+
+                ViewBag.CheckoutCompletoMensagem = "Obrigado pelo seu pedido!";
+                ViewBag.TotalPedido = _carrinhoCompra.GetCarrinhoCompraTotal();
+
+                _carrinhoCompra.LimparCarrinho();
+
+                return View("~/View/Pedido/Checkout/CheckoutCompleto.cshtml", pedido);
+            }
+            return View(pedido);
         }
     }
 }
