@@ -33,7 +33,7 @@ namespace ECommerce.Controllers
             }
             var user = await _userManager.FindByNameAsync(loginVM.UserName);
 
-            if(user != null)
+            if (user != null)
             {
                 var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
                 if (result.Succeeded)
@@ -49,7 +49,6 @@ namespace ECommerce.Controllers
             return View(loginVM);
         }
 
-        [HttpGet]
         public IActionResult Register()
         {
             return View();
@@ -59,21 +58,22 @@ namespace ECommerce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(LoginViewModel registroVM)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = new IdentityUser { UserName = registroVM.UserName };
                 var result = await _userManager.CreateAsync(user, registroVM.Password);
 
                 if (result.Succeeded)
                 {
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Login", "Account");
                 }
                 else
                 {
-                    this.ModelState.AddModelError("Registro", "Falha ao registrar usuário");
+                    this.ModelState.AddModelError("Registro", "Falha ao registrar o usuário");
                 }
             }
             return View(registroVM);
         }
-    } 
+    }
 }
