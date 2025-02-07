@@ -1,0 +1,16 @@
+[33md47ba73[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m6e352db[m HEAD@{1}: reset: moving to HEAD~1
+[33m931b566[m HEAD@{2}: commit: Implementado Identity no projeto
+[33m6e352db[m HEAD@{3}: commit: Criada view CheckoutCompleto/Pedido
+[33md47ba73[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{4}: commit: Criado método Checkout HttpPost em PedidoController
+[33mb0ecd2e[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{5}: commit: Criada view Checkout/Pedido
+[33mf0e3544[m HEAD@{6}: commit: Criado controlador PedidoController
+[33m130ccdd[m HEAD@{7}: commit: Implementado método search em LancheController
+[33mca44a01[m HEAD@{8}: commit: Adicionado padrão repository para classe Pedido
+[33md9380e8[m HEAD@{9}: commit: Criada migration PedidoDetalhes
+[33md493921[m HEAD@{10}: commit: Criada classe PedidoDetalhe
+[33ma3b96d2[m HEAD@{11}: commit: Criada classe Pedido
+[33m40de10e[m HEAD@{12}: commit: Criada página de detalhes dos lanches
+[33mb551086[m HEAD@{13}: commit: Adicionado botão para mostrar detalhes do lanche
+[33mdef017c[m HEAD@{14}: commit: Criado e implementado ViewComponent CategoriaMenu
+[33m90dcda3[m HEAD@{15}: reset: moving to HEAD~1
