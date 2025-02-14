@@ -26,6 +26,7 @@
 					<div class="navbar-nav">
 						<a class="nav-link text-light mx-2" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 						<a class="nav-link text-light mx-2" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>
+						@await Html.PartialAsync("_LoginPartial")
 						@await Component.InvokeAsync("CategoriaMenu")
 					</div>
 					<div class="navbar-nav">
